@@ -22,6 +22,12 @@ class Cookbook
     save_csv
   end
 
+  def mark_recipe_as_done(index)
+    recipe = @recipes[index]
+    recipe.mark_as_done!
+    save_csv
+  end 
+
   private
 
   def save_csv
@@ -37,7 +43,6 @@ class Cookbook
   def load_csv
     CSV.foreach(@csv_file, headers: :first_row, header_converters: :symbol) do |row|
       # row is now a Hash
-      p row
       row[:done] = row[:done] == "true"
       recipe = Recipe.new(row)
       

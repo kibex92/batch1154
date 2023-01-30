@@ -72,9 +72,7 @@ class Controller
     list
     # ask the user for index
     index = @view.ask_user_for_index
-    recipes = @cookbook.all
-    recipe = recipes[index]
-    recipe.mark_as_done!
+    @cookbook.mark_recipe_as_done(index)
     list
   end
 
