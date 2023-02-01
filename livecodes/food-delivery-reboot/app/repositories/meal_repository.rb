@@ -33,7 +33,7 @@ class MealRepository
   end
 
   private
-  
+
   def load_csv
     CSV.foreach(@csv_file, headers: :first_row, header_converters: :symbol) do |row|
       row[:id] = row[:id].to_i
@@ -46,7 +46,7 @@ class MealRepository
 
   def save_csv
     CSV.open(@csv_file, "wb") do |csv|
-      csv << %w(id name price)
+      csv << %w[id name price]
       @meals.each do |meal|
         csv << [meal.id, meal.name, meal.price]
       end

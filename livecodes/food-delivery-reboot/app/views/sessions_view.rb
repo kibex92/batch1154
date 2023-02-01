@@ -17,8 +17,8 @@ class SessionsView
   end
 
   def display(riders)
-    riders.each_with_index do |rider, index|#
-      puts "#{rider.username}"
+    riders.each_with_index do |rider, index|
+      puts "#{index + 1}. #{rider.username}"
     end
   end
 end

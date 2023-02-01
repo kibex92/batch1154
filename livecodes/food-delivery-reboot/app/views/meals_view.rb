@@ -9,11 +9,11 @@ class MealsView
     puts "What's the #{input}?"
     gets.chomp
   end
-  
+
   def ask_user_for_price
     ask_user_for("price").to_i
   end
-  
+
   def ask_for_index
     ask_user_for("number").to_i - 1
   end

@@ -24,6 +24,19 @@ class OrdersController
     @orders_view.display(orders)
   end
 
+  def list_my_orders(employee)
+    orders = employee.undelivered_orders
+    @orders_view.display(orders)
+  end
+
+  def mark_as_delivered(employee)
+    orders = employee.undelivered_orders
+    @orders_view.display(orders)
+    index = @sessions_view.ask_for_index
+    order = orders[index]
+    @order_repository.mark_as_delivered(order)
+  end
+
   def add
     meals = @meal_repository.all
     @meals_view.display(meals)

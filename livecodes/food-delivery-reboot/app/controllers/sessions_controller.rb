@@ -18,13 +18,13 @@ class SessionsController
     employee = @employee_repository.find_by_username(username) # -> Employee Instance
     # 4. Check if the password matches the employee password
     if employee && employee.password == password
-      # if yes, successfull login and ???
+      # if yes, successfull login and return employee
       @view.successfull_login
       employee
     else
       @view.wrong_credentials
       sign_in
     end
-      # if not display wrong credentials message
+    # if not display wrong credentials message
   end
 end
