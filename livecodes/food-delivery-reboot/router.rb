@@ -1,14 +1,15 @@
 class Router
   # STATE
   # controllers
-  def initialize(meals_controller, customers_controller, sessions_controller)
+  def initialize(meals_controller, customers_controller, sessions_controller, orders_controller)
     @meals_controller = meals_controller
     @customers_controller = customers_controller
     @sessions_controller = sessions_controller
+    @orders_controller = orders_controller
     @running = true
   end
 
-
+  
   def run
     # SIGN IN
     while @running
@@ -38,7 +39,9 @@ class Router
     puts "2 - List all meals"
     puts "3 - Add a customer"
     puts "4 - List all customers"
-    puts "5 - Sign out"
+    puts "5 - Add a new order"
+    puts "6 - List all undelivered orders"
+    puts "9 - Sign out"
     puts "0 - Quit"
   end
 
@@ -65,7 +68,9 @@ class Router
       when 2 then @meals_controller.list
       when 3 then @customers_controller.add
       when 4 then @customers_controller.list
-      when 5 then sign_out
+      when 5 then @orders_controller.add
+      when 6 then @orders_controller.list_undelivered_orders
+      when 9 then sign_out
       when 0 then stop
     else
       puts "Please enter a number from 1-5"

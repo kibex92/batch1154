@@ -9,4 +9,8 @@ class CustomersView
     puts "What's the #{input}?"
     gets.chomp
   end
+
+  def ask_for_index
+    ask_user_for("number").to_i - 1
+  end
 end
