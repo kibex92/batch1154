@@ -1,0 +1,6 @@
+[submodule "livecodes/airDB"]
+	path = livecodes/airDB
+	url = git@github.com:kibex92/batch1154.git
+[submodule "rails-basics-1154"]
+	path = rails-basics-1154
+	url = git@github.com:kibex92/batch1154.git
